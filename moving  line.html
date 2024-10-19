@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .bg{
+        background-color: red;
+    }
+</style>
+<body>
+    
+  <div class="bg">
+    <svg width="1890" height="160" >
+        <path d="M 10 80 Q 10 80 1820 80" stroke="black" fill="transparent"/>
+      </svg>
+  </div>
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+var a = 'M 10 80 Q 10 80 1820 80'
+var b = 'M 10 80 Q 10 80 1820 80'
+
+var g = document.querySelector('.bg')
+g.addEventListener('mousemove',function(dets){
+a = `M 10 80 Q ${dets.x} ${dets.y} 1820 80`
+gsap.to('svg path',{
+  attr:{d:a},
+duration:0.3,
+ease:'power3.out'
+})
+})
+
+g.addEventListener('mouseleave',function(dets){
+
+gsap.to('svg path',{
+  attr:{d:b}
+,duration:0.3,
+ease:'power3.out'
+})
+
+})
+
+
+</script>
+</html>
