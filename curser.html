@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<style>
+
+    .bg{
+        background-color: red;
+height: 100%;
+display: flex;
+place-content: center;
+align-items: center;
+    }
+    img{
+      height: 400px;
+      width: 800px;
+
+    }
+    #curser{
+      height: 20px;
+      width: 20px;
+      background-color: aliceblue;
+      border-radius: 50%;
+      position: fixed;
+      z-index: 9;
+      display: flex;
+      justify-content: center;
+align-items: center; 
+font-size: 3px;   }
+  #over{
+    background-color: rgba(255, 0, 0, 0.171);
+    height: 400px;
+    width: 800px;
+    position: absolute;
+    z-index: 10;
+  }
+
+</style>
+<body>
+    
+  <div id="curser"> </div>
+  <div class="bg">
+  <div id="image">
+  <div id="over"> </div>
+
+    <img src="https://images.unsplash.com/photo-1719937206098-236a481a2b6d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" >
+ 
+    </div>
+  </div> 
+
+
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+
+
+var a = document.querySelector('.bg')
+var b = document.querySelector('#curser')
+var c = document.querySelector('#image')
+
+a.addEventListener('mousemove',function(dets){
+gsap.to(b,{
+  x:dets.x,
+  y:dets.y
+})
+
+})
+
+c.addEventListener('mousemove',function(dets){
+  b.innerHTML='Click',
+gsap.to(b,{
+scale:5
+})
+
+})
+
+c.addEventListener('mouseleave',function(dets){
+  b.innerHTML='',
+
+gsap.to(b,{
+scale:1
+})
+
+})
+
+
+
+</script>
+</html>
+
